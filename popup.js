@@ -35,6 +35,9 @@ const popupState = {
   reportBusy: false
 };
 
+const REPORT_SUCCESS_STATES = new Set(["submitted", "duplicate"]);
+const REPORT_RECENT_WINDOW_MS = 30000;
+
 const modeDescriptions = {
   balanced: "Calmer banner handling for everyday browsing.",
   visual_only: "Never clicks buttons. Only hides banners visually.",
@@ -87,11 +90,25 @@ async function refresh() {
 
   toggleSiteButton.textContent = response.siteEnabled ? "Pause on this site" : "Resume on this site";
   toggleSiteButton.disabled = !response.hostname;
-  saveBugReportButton.disabled =
+  const canSubmitReport =
     popupState.reportBusy ||
     !response.reportSubmissionEnabled ||
     !response.hostname ||
     !isNormalWebUrl(response.tabUrl);
+
+  const lastReport = response.lastReportStatus || null;
+  const sameHostname =
+    Boolean(lastReport?.hostname) &&
+    Boolean(response.hostname) &&
+    String(lastReport.hostname).toLowerCase() === String(response.hostname).toLowerCase();
+  const recentlyReported =
+    sameHostname &&
+    REPORT_SUCCESS_STATES.has(String(lastReport?.state || "")) &&
+    Number(lastReport?.submittedAt || 0) > 0 &&
+    Date.now() - Number(lastReport.submittedAt) < REPORT_RECENT_WINDOW_MS;
+
+  saveBugReportButton.textContent = recentlyReported ? "Reported" : "Report broken site";
+  saveBugReportButton.disabled = canSubmitReport || recentlyReported;
 }
 
 async function handleModeChange() {

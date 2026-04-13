@@ -999,7 +999,55 @@
       return true;
     }
 
-    return CookielessRules.isKnownConsentHost(currentHost);
+    return CookielessRules.isKnownConsentHost(currentHost) || frameLooksConsentLike();
+  }
+
+  function frameLooksConsentLike() {
+    const rawText =
+      document.body?.innerText?.slice(0, 2200) ||
+      document.body?.textContent?.slice(0, 2200) ||
+      "";
+    const normalizedText = CookielessRules.normalizeText(rawText);
+
+    if (!normalizedText) {
+      return false;
+    }
+
+    if (CookielessRules.hardBlockSignals.some((signal) => normalizedText.includes(signal))) {
+      return false;
+    }
+
+    const hasCookieOrConsentCopy =
+      CookielessRules.cookieTextSignals.some((signal) => normalizedText.includes(signal)) ||
+      CookielessRules.consentTextSignals.some((signal) => normalizedText.includes(signal));
+
+    if (!hasCookieOrConsentCopy) {
+      return false;
+    }
+
+    const controls = Array.from(
+      document.querySelectorAll("button, [role='button'], a[href], input[type='button'], input[type='submit']")
+    ).slice(0, 40);
+
+    let rejectControlCount = 0;
+    let settingsControlCount = 0;
+
+    for (const control of controls) {
+      const label = CookielessRules.extractControlText(control);
+      if (!label) {
+        continue;
+      }
+
+      if (CookielessRules.isRejectText(label)) {
+        rejectControlCount += 1;
+      }
+
+      if (CookielessRules.settingsTextSignals.some((signal) => label.includes(signal))) {
+        settingsControlCount += 1;
+      }
+    }
+
+    return rejectControlCount > 0 || settingsControlCount > 0;
   }
 
   function resolveEffectiveFrameUrl() {
