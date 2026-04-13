@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Complianz Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Complianz Fixture</h1>
+      <p class="lead">This fixture gives Cookieless a Complianz-style banner with deny and accept actions.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop cmplz-overlay"></div>
+    <section class="fixture-banner cmplz-cookiebanner" id="cmplz-cookiebanner-container">
+      <h2>Privacy settings</h2>
+      <p>We use essential cookies plus optional analytics and advertising cookies that can be denied.</p>
+      <div class="button-row">
+        <button id="complianzReject" class="reject cmplz-btn-deny">Deny</button>
+        <button id="complianzAccept" class="accept cmplz-btn-accept">Accept</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#cmplz-cookiebanner-container",
+        reject: "#complianzReject",
+        accept: "#complianzAccept",
+        cleanup: [".cmplz-overlay"],
+        rejectMessage: "Complianz fixture denied optional cookies.",
+        acceptMessage: "Complianz fixture accepted optional cookies.",
+        hideMessage: "Complianz fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

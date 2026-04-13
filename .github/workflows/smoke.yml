@@ -1,0 +1,25 @@
+name: Smoke
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  smoke:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate brand assets
+        shell: pwsh
+        run: powershell -ExecutionPolicy Bypass -File .\assets\generate-brand-assets.ps1
+        working-directory: apps/Cookieless
+
+      - name: Run smoke gate
+        shell: pwsh
+        run: powershell -ExecutionPolicy Bypass -File .\post-change-smoke.ps1
+        working-directory: apps/Cookieless

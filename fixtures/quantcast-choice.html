@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Quantcast Choice Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Quantcast Choice Fixture</h1>
+      <p class="lead">This fixture mimics a Quantcast Choice first-layer banner with explicit reject and accept actions.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop qc-cmp2-main"></div>
+    <section id="qc-cmp2-container" class="fixture-banner">
+      <h2>Your privacy choices</h2>
+      <p>We and our partners use cookies, legitimate interest, and vendor signals to personalize advertising and analytics.</p>
+      <div class="button-row">
+        <button id="qcReject" mode="secondary" class="reject">Reject all</button>
+        <button id="qcAccept" mode="primary" class="accept">Accept all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#qc-cmp2-container",
+        reject: "#qcReject",
+        accept: "#qcAccept",
+        cleanup: [".qc-cmp2-main"],
+        rejectMessage: "Quantcast Choice fixture rejected optional purposes.",
+        acceptMessage: "Quantcast Choice fixture accepted optional purposes.",
+        hideMessage: "Quantcast Choice fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+experiments/
+_metadata/
+supabase/functions/.env
+supabase/functions/.env.*
+supabase/.temp/
+*.log
+*.tmp
+Thumbs.db
+.DS_Store

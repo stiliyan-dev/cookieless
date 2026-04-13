@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Cookie Information Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Cookie Information Fixture</h1>
+      <p class="lead">This fixture gives the adapter a Cookie Information-style reject button and overlay.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop coi-overlay"></div>
+    <section class="fixture-banner coi-banner" id="coi-banner-wrapper">
+      <h2>Cookie consent</h2>
+      <p>Optional cookies support analytics and partner measurement. You can reject and continue with essential only.</p>
+      <div class="button-row">
+        <button id="cookieInformationReject" class="reject coi-banner__reject">Reject</button>
+        <button id="cookieInformationAccept" class="accept coi-banner__accept">Accept all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#coi-banner-wrapper",
+        reject: "#cookieInformationReject",
+        accept: "#cookieInformationAccept",
+        cleanup: [".coi-overlay"],
+        rejectMessage: "Cookie Information fixture rejected optional cookies.",
+        acceptMessage: "Cookie Information fixture accepted optional cookies.",
+        hideMessage: "Cookie Information fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Fides Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Fides / NYTimes-Style Fixture</h1>
+      <p class="lead">This fixture mimics a Fides banner with text-only controls so the adapter has to find the reject action safely inside a recognized container.</p>
+      <div class="fixture-result" id="result">Waiting for Fides banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop fides-backdrop"></div>
+    <section id="fides-banner" class="fixture-banner">
+      <h2>Your privacy choices</h2>
+      <p>We use cookies and personal data for analytics, advertising, and site preferences. You can reject all non-essential uses.</p>
+      <div class="button-row">
+        <button id="fidesRejectText" class="reject">Reject all</button>
+        <button id="fidesManage" class="secondary">Manage preferences</button>
+        <button id="fidesAccept" class="accept">Accept all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#fides-banner",
+        reject: "#fidesRejectText",
+        accept: "#fidesAccept",
+        configure: "#fidesManage",
+        cleanup: [".fides-backdrop"],
+        rejectMessage: "Fides banner rejected optional cookies.",
+        acceptMessage: "Fides banner accepted all cookies.",
+        configureMessage: "Fides preferences opened.",
+        hideMessage: "Fides banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

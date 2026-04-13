@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Belot Matchmaking Safety Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Belot-style Matchmaking Modal</h1>
+      <p class="lead">
+        This modal is intentionally not a cookie banner. Cookieless should leave it visible so the
+        page can continue the game flow.
+      </p>
+      <div class="fixture-result" id="result">
+        Waiting to confirm the matchmaking modal stays visible.
+      </div>
+    </main>
+
+    <div id="queueBackdrop" class="fixture-backdrop"></div>
+    <section id="queueModal" class="fixture-banner fixture-banner--fullscreen">
+      <h2>Finding match</h2>
+      <p>
+        We are matching you with an opponent and preparing the game table. Keep this window open to
+        continue.
+      </p>
+      <p>
+        Your seat, queue position, and matchmaking state are handled here. This is not a consent or
+        cookie dialog.
+      </p>
+      <div class="button-row">
+        <button id="cancelQueue" class="reject">Cancel queue</button>
+        <button id="joinTable" class="accept">Join table</button>
+      </div>
+    </section>
+
+    <script>
+      const result = document.getElementById("result");
+      const modal = document.getElementById("queueModal");
+      const backdrop = document.getElementById("queueBackdrop");
+
+      function modalHidden() {
+        return (
+          !document.body.contains(modal) ||
+          modal.getAttribute("data-cookieless-hidden") === "true" ||
+          modal.getAttribute("aria-hidden") === "true" ||
+          !document.body.contains(backdrop)
+        );
+      }
+
+      const observer = new MutationObserver(() => {
+        if (result.dataset.fixtureResolved === "true") {
+          observer.disconnect();
+          return;
+        }
+
+        if (modalHidden()) {
+          result.textContent = "Failure: Cookieless hid a non-cookie matchmaking modal.";
+          result.dataset.fixtureResolved = "true";
+          observer.disconnect();
+        }
+      });
+
+      observer.observe(document.documentElement, {
+        subtree: true,
+        childList: true,
+        attributes: true,
+        attributeFilter: ["data-cookieless-hidden", "aria-hidden", "style"]
+      });
+
+      window.setTimeout(() => {
+        if (result.dataset.fixtureResolved === "true") {
+          return;
+        }
+
+        result.textContent = "Success: the non-cookie matchmaking modal stayed visible.";
+        result.dataset.fixtureResolved = "true";
+      }, 1200);
+    </script>
+  </body>
+</html>

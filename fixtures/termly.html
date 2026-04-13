@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Termly Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Termly Fixture</h1>
+      <p class="lead">This fixture checks Termly-style decline handling and scroll unlock.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop termly-overlay"></div>
+    <section class="fixture-banner termly-styles-root">
+      <h2>Manage cookie preferences</h2>
+      <p>Allow or decline optional cookies used for personalization, analytics, and performance monitoring.</p>
+      <div class="button-row">
+        <button id="termlyReject" class="reject t-decline-button">Decline</button>
+        <button id="termlyAccept" class="accept t-accept-button">Allow all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: ".termly-styles-root",
+        reject: "#termlyReject",
+        accept: "#termlyAccept",
+        cleanup: [".termly-overlay"],
+        rejectMessage: "Termly fixture declined optional cookies.",
+        acceptMessage: "Termly fixture allowed optional cookies.",
+        hideMessage: "Termly fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

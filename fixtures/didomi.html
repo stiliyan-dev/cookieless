@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Didomi Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Didomi Fixture</h1>
+      <p class="lead">Didomi frequently exposes disagree buttons directly in the first-layer notice.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop didomi-backdrop"></div>
+    <section id="didomi-host" class="fixture-banner">
+      <h2>Privacy preferences</h2>
+      <p>We use cookies and personal data for content measurement. You can disagree with optional processing.</p>
+      <div class="button-row">
+        <button id="didomi-notice-disagree-button" class="reject">Disagree</button>
+        <button id="didomi-notice-agree-button" class="accept">Agree</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#didomi-host",
+        reject: "#didomi-notice-disagree-button",
+        accept: "#didomi-notice-agree-button",
+        cleanup: [".didomi-backdrop"],
+        rejectMessage: "Didomi fixture rejected optional purposes.",
+        acceptMessage: "Didomi fixture accepted optional purposes.",
+        hideMessage: "Didomi fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cookieless-bg" x1="40" y1="24" x2="212" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3D2C1E" />
+      <stop offset="1" stop-color="#1E140D" />
+    </linearGradient>
+    <linearGradient id="cookieless-cookie" x1="74" y1="66" x2="166" y2="178" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E2B167" />
+      <stop offset="1" stop-color="#BF7C34" />
+    </linearGradient>
+    <linearGradient id="cookieless-shield" x1="150" y1="144" x2="208" y2="210" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2EAA8C" />
+      <stop offset="1" stop-color="#176D60" />
+    </linearGradient>
+  </defs>
+  <rect x="12" y="12" width="232" height="232" rx="56" fill="url(#cookieless-bg)" />
+  <circle cx="108" cy="130" r="68" fill="url(#cookieless-cookie)" />
+  <circle cx="160" cy="82" r="24" fill="#FBF4EA" />
+  <circle cx="86" cy="112" r="7" fill="#6D3F1A" />
+  <circle cx="122" cy="102" r="8" fill="#6D3F1A" />
+  <circle cx="135" cy="140" r="7" fill="#7A4720" />
+  <circle cx="90" cy="152" r="8" fill="#7A4720" />
+  <circle cx="122" cy="171" r="6" fill="#6D3F1A" />
+  <path d="M179.5 142L203 151.7V177.7C203 190.9 193.7 203.5 179.5 210C165.3 203.5 156 190.9 156 177.7V151.7L179.5 142Z" fill="url(#cookieless-shield)" />
+  <path d="M168 176L177 185L193.5 166.5" stroke="#FBF8F1" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Delayed Banner Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Delayed Banner Fixture</h1>
+      <p class="lead">A generic consent banner appears after two seconds to exercise the mutation observer.</p>
+      <div class="fixture-result" id="result">Waiting for delayed banner...</div>
+      <div id="fixtureMount"></div>
+    </main>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.injectAfterDelay(
+        2000,
+        `
+          <div class="fixture-backdrop delayed-backdrop"></div>
+          <section id="delayed-cookie-banner" class="fixture-banner">
+            <h2>Cookie settings</h2>
+            <p>We use cookies and tracking technologies to personalize content and measure performance.</p>
+            <div class="button-row">
+              <button id="delayedReject" class="reject">Reject optional cookies</button>
+              <button id="delayedAccept" class="accept">Accept all</button>
+            </div>
+          </section>
+        `,
+        () => {
+          FixtureConsent.bind({
+            banner: "#delayed-cookie-banner",
+            reject: "#delayedReject",
+            accept: "#delayedAccept",
+            cleanup: [".delayed-backdrop"],
+            rejectMessage: "Delayed banner rejected optional cookies.",
+            acceptMessage: "Delayed banner accepted all cookies.",
+            hideMessage: "Delayed banner was hidden visually."
+          });
+        }
+      );
+    </script>
+  </body>
+</html>

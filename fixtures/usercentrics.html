@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Usercentrics Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Usercentrics Fixture</h1>
+      <p class="lead">Usercentrics often exposes stable test IDs, which makes it a good balanced-mode candidate.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop"></div>
+    <section id="usercentrics-root" class="fixture-banner">
+      <h2>Your privacy choices</h2>
+      <p>We use cookies for analytics and personalization. You can deny all optional processing.</p>
+      <div class="button-row">
+        <button data-testid="uc-deny-all-button" class="reject">Deny all</button>
+        <button data-testid="uc-accept-all-button" class="accept">Accept all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#usercentrics-root",
+        reject: "[data-testid='uc-deny-all-button']",
+        accept: "[data-testid='uc-accept-all-button']",
+        cleanup: [".fixture-backdrop"],
+        rejectMessage: "Usercentrics fixture denied all optional consent.",
+        acceptMessage: "Usercentrics fixture accepted all consent.",
+        hideMessage: "Usercentrics fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

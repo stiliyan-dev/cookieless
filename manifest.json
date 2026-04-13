@@ -1,0 +1,77 @@
+{
+  "manifest_version": 3,
+  "name": "Cookieless",
+  "version": "0.5.0",
+  "description": "Quiet cookie banner handling for Chrome. Rejects supported banners, hides the rest, and sends support reports only when you choose.",
+  "icons": {
+    "16": "assets/brand/icons/icon-16.png",
+    "32": "assets/brand/icons/icon-32.png",
+    "48": "assets/brand/icons/icon-48.png",
+    "128": "assets/brand/icons/icon-128.png"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "declarativeNetRequest"
+  ],
+  "optional_permissions": [
+    "cookies",
+    "contentSettings",
+    "browsingData",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Cookieless",
+    "default_icon": {
+      "16": "assets/brand/icons/icon-16.png",
+      "32": "assets/brand/icons/icon-32.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "storage.js",
+        "rules.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "match_origin_as_fallback": true
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "consent_network",
+        "enabled": true,
+        "path": "rules/consent-network.json"
+      }
+    ]
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "fixtures/*",
+        "harness/http/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

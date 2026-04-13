@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Full-Page Lock Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="fixture-lock">
+    <main class="fixture-shell">
+      <h1>Full-Page Lock Fixture</h1>
+      <p class="lead">This generic overlay should trigger the detector, unlock scrolling, and reject in strict mode.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop"></div>
+    <section id="privacy-wall" class="fixture-banner fixture-banner--fullscreen" role="dialog" data-consent-modal="true">
+      <h2>Manage your privacy choices</h2>
+      <p>We and our vendors use cookies, personal data, and legitimate interest signals for analytics and advertising. Reject optional processing to continue with essential only.</p>
+      <div class="button-row">
+        <button id="fullPageReject" class="reject">Reject optional cookies</button>
+        <button id="fullPageAccept" class="accept">Accept all cookies</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#privacy-wall",
+        reject: "#fullPageReject",
+        accept: "#fullPageAccept",
+        cleanup: [".fixture-backdrop"],
+        rejectMessage: "Full-page lock fixture rejected optional cookies.",
+        acceptMessage: "Full-page lock fixture accepted optional cookies.",
+        hideMessage: "Full-page lock fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Fixtures</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Cookieless Fixtures</h1>
+      <p class="lead">
+        Open these local fixtures after enabling file URL access for the extension.
+        They cover the fifteen CMP adapters, stubborn generic banners, iframe flows,
+        SPA reinjection, and negative cases.
+      </p>
+
+      <section class="fixture-section">
+        <h2>Supported CMP fixtures</h2>
+        <div class="fixture-links">
+          <a href="onetrust.html">OneTrust</a>
+          <a href="cookiebot.html">Cookiebot</a>
+          <a href="trustarc.html">TrustArc</a>
+          <a href="usercentrics.html">Usercentrics</a>
+          <a href="didomi.html">Didomi</a>
+          <a href="sourcepoint.html">Sourcepoint</a>
+          <a href="quantcast-choice.html">Quantcast Choice</a>
+          <a href="cookieyes.html">CookieYes</a>
+          <a href="osano.html">Osano</a>
+          <a href="termly.html">Termly</a>
+          <a href="complianz.html">Complianz</a>
+          <a href="axeptio.html">Axeptio</a>
+          <a href="cookie-information.html">Cookie Information</a>
+          <a href="crownpeak-evidon.html">Crownpeak / Evidon</a>
+          <a href="fides.html">Fides / NYTimes</a>
+        </div>
+      </section>
+
+      <section class="fixture-section">
+        <h2>Generic and resilience fixtures</h2>
+        <div class="fixture-links">
+          <a href="delayed-banner.html">Delayed banner</a>
+          <a href="iframe-host.html">Iframe banner</a>
+          <a href="unknown-custom.html">Unknown custom banner</a>
+          <a href="full-page-lock.html">Full-page lock overlay</a>
+          <a href="accept-only-trap.html">Accept-only trap</a>
+          <a href="spa-navigation.html">SPA navigation</a>
+        </div>
+      </section>
+
+      <section class="fixture-section">
+        <h2>Safety fixtures</h2>
+        <div class="fixture-links">
+          <a href="negative-modal.html">Negative marketing modal</a>
+          <a href="belot-matchmaking.html">Belot-style matchmaking modal</a>
+          <a href="no-consent.html">No consent control page</a>
+          <a href="challenge-page.html">Challenge-style page</a>
+        </div>
+      </section>
+
+      <section class="fixture-card">
+        <h2>HTTP harness</h2>
+        <p>
+          For real cookie and storage cleanup tests, run
+          <code>powershell -ExecutionPolicy Bypass -File C:\ChromeExtension\apps\Cookieless\run-http-harness.ps1</code>
+          and then open <code>http://127.0.0.1:8765/index.html</code>.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

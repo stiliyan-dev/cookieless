@@ -1,0 +1,49 @@
+name: Broken site
+description: Report a site where Cookieless did not hide or reject the cookie banner correctly.
+title: "Broken site: "
+labels:
+  - broken-site
+body:
+  - type: input
+    id: site_url
+    attributes:
+      label: Site URL
+      description: Paste the page URL that showed the problem.
+      placeholder: https://example.com/
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Cookieless mode
+      options:
+        - Recommended
+        - Hide only
+        - Stronger reject
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened
+      description: Describe what you saw on the page.
+      placeholder: The banner stayed visible, the page stayed blurred, or the page did not load correctly.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What should have happened
+      description: Describe the result you expected from Cookieless.
+      placeholder: The banner should have been hidden or rejected without breaking the page.
+    validations:
+      required: true
+  - type: textarea
+    id: debug_report
+    attributes:
+      label: Debug report
+      description: Paste the debug report copied by the `Report broken site` button.
+      render: text
+    validations:
+      required: false

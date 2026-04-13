@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Unknown Custom Banner Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Unknown Custom Banner</h1>
+      <p class="lead">This generic banner is not tied to a supported CMP. Balanced mode should hide it; strict may click reject.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop custom-consent-backdrop"></div>
+    <section id="cookie-barn-door" class="fixture-banner">
+      <h2>Cookie preferences</h2>
+      <p>We use cookies, tracking pixels, and privacy choices to personalize ads and analytics. You can reject optional cookies.</p>
+      <div class="button-row">
+        <button id="customReject" class="reject">Reject optional cookies</button>
+        <button id="customAccept" class="accept">Accept all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#cookie-barn-door",
+        reject: "#customReject",
+        accept: "#customAccept",
+        cleanup: [".custom-consent-backdrop"],
+        rejectMessage: "Unknown custom banner rejected optional cookies.",
+        acceptMessage: "Unknown custom banner accepted all cookies.",
+        hideMessage: "Unknown custom banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+  What this file does:
+  Renders the simple consumer popup for Cookieless.
+
+  Why it exists:
+  Store-facing users need a clear status view, one recovery control, and an optional reporting flow they can trust.
+
+  How to extend it:
+  Keep the main popup minimal and move future diagnostics into dedicated internal pages or developer-only tooling.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div class="brandRow">
+          <img class="brandMark" src="assets/brand/icon-mark.svg" alt="" />
+          <div>
+            <div class="eyebrow">Quiet browsing by default</div>
+            <h1>Cookieless</h1>
+          </div>
+        </div>
+        <p class="heroCopy">
+          Hide cookie nags quietly, reject supported banners, and report broken sites only when you choose.
+        </p>
+      </header>
+
+      <section class="card">
+        <div class="fieldHeader">
+          <label for="modeSelect" class="cardLabel">Browsing style</label>
+          <button
+            id="modeInfoButton"
+            class="infoButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="modePopover"
+            aria-label="Learn about browsing styles"
+          >
+            ?
+          </button>
+        </div>
+        <select id="modeSelect">
+          <option value="balanced">Recommended</option>
+          <option value="visual_only">Hide only</option>
+          <option value="strict_reject">Stronger reject</option>
+        </select>
+        <div id="modeHelp" class="muted"></div>
+        <div id="modePopover" class="popover" hidden>
+          <p><strong>Recommended</strong> keeps banner handling calmer for everyday browsing.</p>
+          <p><strong>Hide only</strong> removes banners visually and never clicks anything.</p>
+          <p><strong>Stronger reject</strong> uses the most aggressive reject attempts when confidence is high.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="cardLabel">Current site</div>
+        <div id="hostname" class="headline">Waiting for a supported tab...</div>
+        <div id="outcomeLabel" class="pill">No action</div>
+        <div id="activityLine" class="bodyLine">Cookieless will explain what happened here.</div>
+        <div id="bannerLine" class="muted">No recognized banner yet.</div>
+      </section>
+
+      <section class="actionRow">
+        <button id="toggleSite" class="secondary" type="button">Pause on this site</button>
+        <button id="saveBugReport" class="primary" type="button">Report broken site</button>
+      </section>
+
+      <p class="footerNote">
+        Browsing stays local by default. Reporting is optional and only happens when you click the button.
+      </p>
+
+      <section class="card">
+        <div class="cardLabel">Lifetime stats</div>
+        <div class="statsGrid">
+          <article class="statCard">
+            <strong id="statsHidden">0</strong>
+            <span>Hidden</span>
+          </article>
+          <article class="statCard">
+            <strong id="statsRejected">0</strong>
+            <span>Rejected</span>
+          </article>
+          <article class="statCard">
+            <strong id="statsReports">0</strong>
+            <span>Reports</span>
+          </article>
+        </div>
+      </section>
+
+      <div id="status" class="status"></div>
+    </main>
+
+    <section id="reportDisclosure" class="modalShell" hidden>
+      <button id="reportDisclosureBackdrop" class="modalBackdrop" type="button" aria-label="Close report disclosure"></button>
+      <div class="modalCard" role="dialog" aria-modal="true" aria-labelledby="reportDisclosureTitle">
+        <div class="cardLabel">Before you report</div>
+        <h2 id="reportDisclosureTitle">Send this site to support?</h2>
+        <p id="reportDisclosureText" class="modalCopy">
+          Cookieless will send the current page URL and diagnostic details to support so the issue can be reviewed and fixed.
+        </p>
+        <label class="checkboxRow">
+          <input id="reportConsentCheckbox" type="checkbox" />
+          <span>I understand and want Cookieless to send future broken-site reports when I click the button.</span>
+        </label>
+        <div class="modalActions">
+          <button id="cancelReportDisclosure" class="secondary" type="button">Cancel</button>
+          <button id="confirmReportDisclosure" class="primary" type="button" disabled>Send report</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="config.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookieless Privacy Policy</title>
+    <meta
+      name="description"
+      content="Privacy policy for Cookieless, a Chrome extension for quiet cookie banner handling and optional broken-site reporting."
+    />
+    <link rel="icon" href="assets/brand/icon-128.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="pageGlow"></div>
+    <div class="pageCrumbs"></div>
+
+    <header class="topbar">
+      <a class="brandLockup" href="./index.html" aria-label="Cookieless home">
+        <img src="assets/brand/logo-lockup.svg" alt="Cookieless" />
+      </a>
+      <nav class="topnav">
+        <a href="./index.html">Home</a>
+        <a href="https://github.com/stiliyan-dev/cookieless/releases/latest">Releases</a>
+        <a href="https://github.com/stiliyan-dev/cookieless/issues">Support</a>
+      </nav>
+    </header>
+
+    <main class="policyShell">
+      <section class="policyHero">
+        <div class="eyebrow">Privacy Policy</div>
+        <h1>Cookieless Privacy Policy</h1>
+        <p>Last updated: April 12, 2026</p>
+      </section>
+
+      <section class="policyCard">
+        <h2>Overview</h2>
+        <p>
+          Cookieless is a Chrome extension that helps users handle cookie banners more quietly. It
+          rejects supported banners, hides other banners visually, and provides a simple per-site
+          pause control in the popup.
+        </p>
+      </section>
+
+      <section class="policyCard">
+        <h2>What the extension processes locally</h2>
+        <p>
+          On visited pages, Cookieless may inspect page structure, banner text, and page state in
+          order to detect likely cookie or privacy banners. These checks run locally in the
+          browser.
+        </p>
+      </section>
+
+      <section class="policyCard">
+        <h2>What the extension stores locally</h2>
+        <p>Cookieless stores extension data on the device using <code>chrome.storage.local</code>.</p>
+        <ul class="policyList">
+          <li>Selected browsing mode</li>
+          <li>Per-site enabled or paused overrides</li>
+          <li>Outcome summaries and simple lifetime stats</li>
+          <li>Optional internal debugging and site-state data when those features are used</li>
+          <li>Whether the user has acknowledged the broken-site reporting disclosure</li>
+        </ul>
+      </section>
+
+      <section class="policyCard">
+        <h2>Broken-site reporting</h2>
+        <p>
+          When the user clicks <code>Report broken site</code>, Cookieless can send a support
+          report containing the current page URL and diagnostic information needed to review the
+          issue.
+        </p>
+        <p>
+          Reports are sent only when the user chooses to report a site. Cookieless does not send
+          general browsing telemetry off-device by default.
+        </p>
+      </section>
+
+      <section class="policyCard">
+        <h2>Where support reports are processed</h2>
+        <p>
+          Broken-site reports are stored in a Supabase-hosted support inbox used by the developer
+          to review, triage, and fix site issues. Public GitHub Issues are used later for curated
+          engineering follow-up, not as the first landing place for every customer report.
+        </p>
+      </section>
+
+      <section class="policyCard">
+        <h2>What Cookieless does not do</h2>
+        <ul class="policyList">
+          <li>It does not require an account.</li>
+          <li>It does not use analytics in this build.</li>
+          <li>It does not use a remote rule feed in this build.</li>
+          <li>It does not auto-send site reports without a user click.</li>
+          <li>It does not expose server-side secrets in the browser extension.</li>
+        </ul>
+      </section>
+
+      <section class="policyCard">
+        <h2>Support</h2>
+        <p>
+          Public support for Cookieless is handled through GitHub Issues:
+          <a href="https://github.com/stiliyan-dev/cookieless/issues">
+            https://github.com/stiliyan-dev/cookieless/issues
+          </a>
+        </p>
+      </section>
+
+      <section class="policyCard">
+        <h2>Changes to this policy</h2>
+        <p>
+          This policy may be updated if Cookieless changes how it handles storage, reporting,
+          optional power tools, or website interaction. Material changes should be reflected in the
+          Chrome Web Store disclosures and on this page.
+        </p>
+      </section>
+    </main>
+
+    <footer class="siteFooter">
+      <div>Cookieless</div>
+      <div class="siteFooter__links">
+        <a href="./index.html">Home</a>
+        <a href="https://github.com/stiliyan-dev/cookieless/issues">Support</a>
+        <a href="https://github.com/stiliyan-dev/cookieless">GitHub</a>
+      </div>
+    </footer>
+  </body>
+</html>

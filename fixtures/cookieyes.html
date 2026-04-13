@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless CookieYes Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>CookieYes Fixture</h1>
+      <p class="lead">This fixture checks CookieYes selectors plus overlay cleanup.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop cky-overlay"></div>
+    <section id="cookie-law-info-bar" class="fixture-banner cky-consent-container">
+      <h2>We use cookies</h2>
+      <p>Choose whether optional cookies may support analytics and advertising on this site.</p>
+      <div class="button-row">
+        <button id="ckyReject" class="reject cky-btn-reject">Reject</button>
+        <button id="ckyAccept" class="accept cky-btn-accept">Accept all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#cookie-law-info-bar",
+        reject: "#ckyReject",
+        accept: "#ckyAccept",
+        cleanup: [".cky-overlay"],
+        rejectMessage: "CookieYes fixture rejected optional cookies.",
+        acceptMessage: "CookieYes fixture accepted optional cookies.",
+        hideMessage: "CookieYes fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

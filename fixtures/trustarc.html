@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless TrustArc Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>TrustArc Fixture</h1>
+      <p class="lead">TrustArc deployments vary, so this fixture keeps the selectors simple for adapter validation.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop truste_overlay"></div>
+    <section id="trustarc-banner-wrapper" class="fixture-banner">
+      <h2>Privacy manager</h2>
+      <p>This TrustArc-like banner asks for consent to analytics, advertising, and partner tracking cookies.</p>
+      <div class="button-row">
+        <button id="trustarc-reject-all" class="reject">Reject all</button>
+        <button id="trustarc-accept-all" class="accept">Accept all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#trustarc-banner-wrapper",
+        reject: "#trustarc-reject-all",
+        accept: "#trustarc-accept-all",
+        cleanup: [".truste_overlay"],
+        rejectMessage: "TrustArc fixture rejected optional consent.",
+        acceptMessage: "TrustArc fixture accepted optional consent.",
+        hideMessage: "TrustArc fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,312 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI Variable", "Aptos", "Trebuchet MS", sans-serif;
+  color: #2d2319;
+  background: linear-gradient(180deg, #fbf4ea 0%, #f5ebdf 100%);
+}
+
+.pageGlow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top right, rgba(209, 136, 53, 0.18), transparent 24%),
+    radial-gradient(circle at bottom left, rgba(36, 140, 116, 0.12), transparent 28%);
+}
+
+.pageCrumbs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.26;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(120, 87, 53, 0.22) 0 8px, transparent 9px),
+    radial-gradient(circle at 84% 18%, rgba(120, 87, 53, 0.18) 0 7px, transparent 8px),
+    radial-gradient(circle at 18% 84%, rgba(120, 87, 53, 0.14) 0 6px, transparent 7px),
+    radial-gradient(circle at 74% 80%, rgba(120, 87, 53, 0.18) 0 9px, transparent 10px);
+}
+
+.topbar,
+.siteShell,
+.policyShell,
+.siteFooter {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px clamp(18px, 3vw, 38px);
+}
+
+.brandLockup img {
+  width: min(100%, 280px);
+  display: block;
+}
+
+.topnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.topnav a,
+.siteFooter__links a,
+.textLink {
+  color: #725536;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.siteShell,
+.policyShell {
+  width: min(1140px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding-bottom: 56px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 22px;
+  padding: 12px 0 30px;
+}
+
+.heroCopy,
+.heroPanel,
+.featureCard,
+.shotCard,
+.sectionBlock,
+.policyCard,
+.policyHero {
+  border-radius: 28px;
+  border: 1px solid rgba(118, 88, 56, 0.12);
+  background: rgba(255, 250, 244, 0.94);
+  box-shadow: 0 18px 42px rgba(76, 56, 32, 0.09);
+}
+
+.heroCopy {
+  padding: clamp(28px, 4vw, 44px);
+}
+
+.eyebrow,
+.heroPanel__eyebrow,
+.featureCard__eyebrow {
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8c663b;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #392818;
+}
+
+.hero h1 {
+  font-size: clamp(40px, 5vw, 58px);
+  line-height: 1.02;
+}
+
+.heroLead,
+.heroPanel p,
+.featureCard p,
+.policyCard p,
+.policyList,
+.shotCard figcaption {
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.65;
+  color: #654d32;
+}
+
+.heroActions,
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, #6f4520 0%, #8a5b2f 100%);
+  color: #fff7ef;
+}
+
+.button--secondary {
+  background: #fff5e9;
+  color: #4a3420;
+  border: 1px solid #d7c0a3;
+}
+
+.button--ghost {
+  background: transparent;
+  color: #6d5032;
+  border: 1px solid rgba(140, 103, 64, 0.25);
+}
+
+.heroPanel {
+  padding: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(36, 140, 116, 0.12), transparent 30%),
+    rgba(255, 249, 241, 0.97);
+}
+
+.heroChecklist,
+.policyList {
+  padding-left: 22px;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.featureCard {
+  padding: 24px;
+}
+
+.sectionBlock {
+  margin-top: 24px;
+  padding: 28px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.shotGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.shotCard {
+  overflow: hidden;
+}
+
+.shotCard--wide {
+  grid-column: 1 / -1;
+}
+
+.shotCard img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #f0e6d9;
+}
+
+.shotCard figcaption {
+  margin: 0;
+  padding: 16px 18px 18px;
+  font-size: 14px;
+}
+
+.sectionBlock--cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+}
+
+code {
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: #f4e8d8;
+  color: #6d5032;
+}
+
+.policyShell {
+  max-width: 860px;
+}
+
+.policyHero {
+  padding: 32px;
+  margin: 12px 0 22px;
+}
+
+.policyHero h1 {
+  font-size: clamp(36px, 5vw, 52px);
+}
+
+.policyCard {
+  padding: 24px 26px;
+  margin-bottom: 18px;
+}
+
+.siteFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 24px clamp(18px, 3vw, 38px) 34px;
+  color: #6d5032;
+  font-weight: 700;
+}
+
+.siteFooter__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .featureGrid,
+  .sectionBlock--cta {
+    grid-template-columns: 1fr;
+  }
+
+  .shotGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar,
+  .siteFooter,
+  .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    padding-top: 18px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .heroLead,
+  .heroPanel p,
+  .featureCard p,
+  .policyCard p,
+  .policyList {
+    font-size: 15px;
+  }
+}

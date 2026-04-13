@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Axeptio Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Axeptio Fixture</h1>
+      <p class="lead">This fixture uses Axeptio-style test IDs so the adapter can deny all safely.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop" id="axeptio_overlay"></div>
+    <section class="fixture-banner axeptio_mount">
+      <h2>Privacy choices</h2>
+      <p>We use optional vendors and analytics cookies unless you deny all non-essential processing.</p>
+      <div class="button-row">
+        <button id="axeptioReject" class="reject" data-testid="axeptio_btn_denyAll">Deny all</button>
+        <button id="axeptioAccept" class="accept" data-testid="axeptio_btn_acceptAll">Accept all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: ".axeptio_mount",
+        reject: "#axeptioReject",
+        accept: "#axeptioAccept",
+        cleanup: ["#axeptio_overlay"],
+        rejectMessage: "Axeptio fixture denied all optional processing.",
+        acceptMessage: "Axeptio fixture accepted all optional processing.",
+        hideMessage: "Axeptio fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

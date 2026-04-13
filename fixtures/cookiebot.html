@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Cookiebot Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Cookiebot Fixture</h1>
+      <p class="lead">This page mimics the common Cookiebot decline-all surface.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop"></div>
+    <section id="CybotCookiebotDialog" class="fixture-banner">
+      <h2>This website uses cookies</h2>
+      <p>Cookiebot stores a consent choice and shows the banner again if no choice is saved.</p>
+      <div class="button-row">
+        <button id="CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll" class="reject">Decline all</button>
+        <button id="CybotCookiebotDialogBodyButtonAccept" class="accept">Allow all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#CybotCookiebotDialog",
+        reject: "#CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll",
+        accept: "#CybotCookiebotDialogBodyButtonAccept",
+        cleanup: [".fixture-backdrop"],
+        rejectMessage: "Cookiebot fixture declined all cookies.",
+        acceptMessage: "Cookiebot fixture allowed all cookies.",
+        hideMessage: "Cookiebot fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

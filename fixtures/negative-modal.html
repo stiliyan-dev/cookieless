@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Negative Marketing Modal Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Negative Marketing Modal</h1>
+      <p class="lead">This modal is intentionally not a consent surface. Cookieless should leave it alone.</p>
+      <div class="fixture-result" id="result">Marketing modal should remain visible until you close it manually.</div>
+    </main>
+
+    <div class="fixture-backdrop marketing-backdrop"></div>
+    <section id="newsletterModal" class="fixture-banner">
+      <h2>Join our newsletter</h2>
+      <p>Get product updates, launch notes, and hand-picked reads once a week.</p>
+      <div class="button-row">
+        <button id="closeMarketing" class="reject">No thanks</button>
+        <button id="joinMarketing" class="accept">Join now</button>
+      </div>
+    </section>
+
+    <script>
+      document.getElementById("closeMarketing").addEventListener("click", () => {
+        document.getElementById("newsletterModal").remove();
+        document.querySelector(".marketing-backdrop").remove();
+        document.getElementById("result").textContent = "Marketing modal closed manually.";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless SPA Navigation Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>SPA Navigation Fixture</h1>
+      <p class="lead">Use the button below to push a route change and then inject a Didomi-style banner.</p>
+      <div class="fixture-links">
+        <button id="simulateRoute">Simulate route change</button>
+      </div>
+      <div class="fixture-result" id="result">Waiting for route simulation.</div>
+      <div id="fixtureMount"></div>
+    </main>
+
+    <script src="shared.js"></script>
+    <script>
+      document.getElementById("simulateRoute").addEventListener("click", () => {
+        FixtureConsent.pushFixtureRoute("preferences", () => {
+          document.getElementById("result").dataset.fixtureResolved = "";
+          document.getElementById("result").textContent = "Route changed. Waiting for injected banner...";
+          window.setTimeout(() => {
+            document.getElementById("fixtureMount").innerHTML = `
+              <div class="fixture-backdrop didomi-backdrop"></div>
+              <section id="didomi-popup" class="fixture-banner">
+                <h2>Privacy choices</h2>
+                <p>We use cookies for analytics and partner measurement. Reject optional purposes to continue.</p>
+                <div class="button-row">
+                  <button id="spaReject" class="reject">Disagree</button>
+                  <button id="spaAccept" class="accept">Agree</button>
+                </div>
+              </section>
+            `;
+
+            FixtureConsent.bind({
+              banner: "#didomi-popup",
+              reject: "#spaReject",
+              accept: "#spaAccept",
+              cleanup: [".didomi-backdrop"],
+              rejectMessage: "SPA fixture rejected optional purposes.",
+              acceptMessage: "SPA fixture accepted optional purposes.",
+              hideMessage: "SPA fixture banner was hidden visually."
+            });
+          }, 600);
+        });
+      });
+    </script>
+  </body>
+</html>

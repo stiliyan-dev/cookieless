@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless HTTP Harness</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Cookieless HTTP Harness</h1>
+      <p class="lead">
+        Use these pages to test real cookies, local storage, IndexedDB, CacheStorage,
+        and reload recreation against the popup power tools.
+      </p>
+
+      <section class="card">
+        <h2>Cookie cases</h2>
+        <div class="links">
+          <a href="cookie-lab.html?case=session">Session cookie</a>
+          <a href="cookie-lab.html?case=persistent">Persistent cookie</a>
+          <a href="cookie-lab.html?case=rewrite">Cookie rewritten after load</a>
+          <a href="cookie-lab.html?case=reload">Cookie recreated after reload</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Storage cases</h2>
+        <div class="links">
+          <a href="cookie-lab.html?case=storage">Storage-only tracking</a>
+          <a href="cookie-lab.html?case=mixed">Mixed cookie and storage state</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>How to use it</h2>
+        <ol>
+          <li>Open one of the harness cases above.</li>
+          <li>Use the Cookieless popup to inspect current site state.</li>
+          <li>Try clear, session-only, block, and reload protected actions.</li>
+          <li>Reload the page and confirm the case-specific state changed as expected.</li>
+        </ol>
+      </section>
+    </main>
+  </body>
+</html>

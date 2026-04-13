@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Osano Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Osano Fixture</h1>
+      <p class="lead">This fixture mirrors an Osano-style modal with deny-all support.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop osano-cm-overlay"></div>
+    <section class="fixture-banner osano-cm-dialog">
+      <h2>Cookie preferences</h2>
+      <p>Optional analytics and advertising cookies help us improve the product and measure campaign performance.</p>
+      <div class="button-row">
+        <button id="osanoReject" class="reject osano-cm-denyAll">Deny</button>
+        <button id="osanoAccept" class="accept osano-cm-acceptAll">Allow all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: ".osano-cm-dialog",
+        reject: "#osanoReject",
+        accept: "#osanoAccept",
+        cleanup: [".osano-cm-overlay"],
+        rejectMessage: "Osano fixture denied optional cookies.",
+        acceptMessage: "Osano fixture allowed optional cookies.",
+        hideMessage: "Osano fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

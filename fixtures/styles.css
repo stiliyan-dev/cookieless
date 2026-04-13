@@ -1,0 +1,156 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+body.fixture-lock,
+html.fixture-lock {
+  overflow: hidden;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px 96px;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+
+.lead {
+  color: #475569;
+  line-height: 1.6;
+}
+
+.fixture-section {
+  margin-top: 24px;
+}
+
+.fixture-links {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.fixture-links a,
+.fixture-links button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: white;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  text-decoration: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.fixture-card {
+  padding: 18px;
+  border-radius: 16px;
+  background: white;
+  border: 1px solid #dbe2ea;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.fixture-banner {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  width: min(760px, calc(100vw - 32px));
+  padding: 18px;
+  border-radius: 16px;
+  background: #0f172a;
+  color: #e2e8f0;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.36);
+  z-index: 1001;
+}
+
+.fixture-banner--fullscreen {
+  top: 20px;
+  bottom: 20px;
+  width: min(920px, calc(100vw - 32px));
+  overflow: auto;
+}
+
+.fixture-banner h2,
+.fixture-banner p {
+  margin: 0 0 10px;
+}
+
+.fixture-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.56);
+  z-index: 1000;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button-row button {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button-row .reject {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.button-row .accept {
+  background: #14b8a6;
+  color: white;
+}
+
+.button-row .secondary {
+  background: #334155;
+  color: white;
+}
+
+.fixture-result {
+  margin-top: 20px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.fixture-shell {
+  min-height: 60vh;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.feature-grid article {
+  padding: 16px;
+  border-radius: 14px;
+  background: white;
+  border: 1px solid #dbe2ea;
+}
+
+iframe.fixture-iframe {
+  width: 100%;
+  min-height: 540px;
+  border: 1px solid #cbd5e1;
+  border-radius: 16px;
+  background: white;
+}

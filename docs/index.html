@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookieless</title>
+    <meta
+      name="description"
+      content="Quiet cookie banner handling for Chrome with optional user-initiated broken-site reporting and simple site controls."
+    />
+    <link rel="icon" href="assets/brand/icon-128.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="pageGlow"></div>
+    <div class="pageCrumbs"></div>
+
+    <header class="topbar">
+      <a class="brandLockup" href="./index.html" aria-label="Cookieless home">
+        <img src="assets/brand/logo-lockup.svg" alt="Cookieless" />
+      </a>
+      <nav class="topnav">
+        <a href="#features">Features</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="https://github.com/stiliyan-dev/cookieless/issues">Support</a>
+      </nav>
+    </header>
+
+    <main class="siteShell">
+      <section class="hero">
+        <div class="heroCopy">
+          <div class="eyebrow">Chrome extension | Quiet by default | Local-first</div>
+          <h1>Make cookie banners smaller, quieter, and safer for real sites.</h1>
+          <p class="heroLead">
+            Cookieless rejects supported banners, hides the rest visually, and saves broken-site
+            reports only when the user explicitly clicks the report action.
+          </p>
+          <div class="heroActions">
+            <a class="button button--primary" href="https://github.com/stiliyan-dev/cookieless/releases/latest">
+              View latest release
+            </a>
+            <a class="button button--secondary" href="./privacy-policy.html">Privacy Policy</a>
+            <a class="button button--ghost" href="https://github.com/stiliyan-dev/cookieless">
+              View source
+            </a>
+          </div>
+        </div>
+
+        <div class="heroPanel">
+          <div class="heroPanel__eyebrow">Popup promise</div>
+          <h2>One clear status card. One pause button. One optional report action.</h2>
+          <p>
+            Cookieless keeps the toolbar popup simple so users do not need to choose between
+            troubleshooting actions they do not understand.
+          </p>
+          <ul class="heroChecklist">
+            <li>Recommended, Hide only, and Stronger reject modes</li>
+            <li>Per-site pause or resume for fast recovery</li>
+            <li>Reporting is optional and user-initiated</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="featureGrid" id="features">
+        <article class="featureCard">
+          <div class="featureCard__eyebrow">Quiet handling</div>
+          <h2>Reject supported banners and hide the rest.</h2>
+          <p>
+            Cookieless starts with the least disruptive path instead of pretending to accept
+            everything for the user.
+          </p>
+        </article>
+        <article class="featureCard">
+          <div class="featureCard__eyebrow">Fast recovery</div>
+          <h2>Pause any site in one click.</h2>
+          <p>
+            If a site breaks or feels off, the popup gives one obvious recovery control instead of
+            a wall of buttons.
+          </p>
+        </article>
+        <article class="featureCard">
+          <div class="featureCard__eyebrow">Optional support reporting</div>
+          <h2>Report broken sites only when you choose.</h2>
+          <p>
+            The first report shows a disclosure, and submissions send only the current page URL and
+            diagnostic data needed for support triage.
+          </p>
+        </article>
+      </section>
+
+      <section class="sectionBlock" id="screenshots">
+        <div class="sectionHeader">
+          <div>
+            <div class="eyebrow">Screenshots</div>
+            <h2>Current product views</h2>
+          </div>
+          <a class="textLink" href="https://github.com/stiliyan-dev/cookieless/releases/latest">
+            Latest release
+          </a>
+        </div>
+
+        <div class="shotGrid">
+          <figure class="shotCard shotCard--wide">
+            <img src="assets/screenshots/popup-overview.png" alt="Cookieless popup overview" />
+            <figcaption>Simple consumer popup with clear mode names and one optional report action.</figcaption>
+          </figure>
+          <figure class="shotCard">
+            <img src="assets/screenshots/quiet-handling.png" alt="Quiet cookie handling example" />
+            <figcaption>Quiet page handling that prioritizes site safety over overreaching automation.</figcaption>
+          </figure>
+          <figure class="shotCard">
+            <img src="assets/screenshots/report-flow.png" alt="Optional report flow example" />
+            <figcaption>Broken-site reports are sent only when the user explicitly chooses to report.</figcaption>
+          </figure>
+          <figure class="shotCard">
+            <img src="assets/screenshots/site-pause.png" alt="Per-site pause example" />
+            <figcaption>Pause a site immediately if Cookieless gets in the way.</figcaption>
+          </figure>
+          <figure class="shotCard">
+            <img src="assets/screenshots/local-first.png" alt="Local-first Cookieless summary" />
+            <figcaption>Local-first browsing with optional user-initiated support reporting.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="sectionBlock sectionBlock--cta">
+        <div>
+          <div class="eyebrow">Publish-ready URLs</div>
+          <h2>Use this site for the Chrome Web Store homepage and privacy policy.</h2>
+          <p>
+            Homepage URL:
+            <code>https://stiliyan-dev.github.io/cookieless/</code>
+          </p>
+          <p>
+            Privacy policy URL:
+            <code>https://stiliyan-dev.github.io/cookieless/privacy-policy.html</code>
+          </p>
+        </div>
+        <div class="ctaActions">
+          <a class="button button--primary" href="./privacy-policy.html">Open privacy policy</a>
+          <a class="button button--secondary" href="https://github.com/stiliyan-dev/cookieless">
+            Open GitHub repo
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="siteFooter">
+      <div>Cookieless</div>
+      <div class="siteFooter__links">
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="https://github.com/stiliyan-dev/cookieless/issues">Support</a>
+        <a href="https://github.com/stiliyan-dev/cookieless">GitHub</a>
+      </div>
+    </footer>
+  </body>
+</html>

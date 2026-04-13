@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Just a moment...</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Challenge-Style Negative Fixture</h1>
+      <p class="lead">This page intentionally looks like a bot challenge. Cookieless should not hide or click anything here.</p>
+      <div class="fixture-result" id="result">Challenge screen should remain visible.</div>
+    </main>
+
+    <div class="fixture-backdrop"></div>
+    <section id="challengeGate" class="fixture-banner fixture-banner--fullscreen" role="dialog" aria-modal="true">
+      <h2>Just a moment...</h2>
+      <p>Enable JavaScript and cookies to continue. We are checking your browser before accessing this page.</p>
+      <div class="fixture-card">
+        <strong>Verification required</strong>
+        <p>Verify you are human to continue.</p>
+      </div>
+    </section>
+
+    <script>
+      window._cf_chl_opt = { simulated: true };
+    </script>
+  </body>
+</html>

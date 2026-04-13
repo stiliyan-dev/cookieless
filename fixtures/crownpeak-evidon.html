@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Crownpeak Evidon Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Crownpeak / Evidon Fixture</h1>
+      <p class="lead">This fixture covers the Evidon-style banner that still shows up on some publishing stacks.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop evidon-background"></div>
+    <section id="_evidon_banner" class="fixture-banner">
+      <h2>Your privacy options</h2>
+      <p>Essential cookies keep the site running. Reject optional cookies to continue without advertising or analytics extras.</p>
+      <div class="button-row">
+        <button id="evidonReject" class="reject">Reject</button>
+        <button id="evidonAccept" class="accept">Accept</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#_evidon_banner",
+        reject: "#evidonReject",
+        accept: "#evidonAccept",
+        cleanup: [".evidon-background"],
+        rejectMessage: "Crownpeak Evidon fixture rejected optional cookies.",
+        acceptMessage: "Crownpeak Evidon fixture accepted optional cookies.",
+        hideMessage: "Crownpeak Evidon fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

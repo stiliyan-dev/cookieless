@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Iframe Banner Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <p class="lead">This file is loaded inside the iframe host fixture.</p>
+      <div class="fixture-result" id="result">Waiting for iframe banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop"></div>
+    <section id="sp_message_container_202" class="fixture-banner">
+      <h2>Privacy choices in iframe</h2>
+      <p>This Sourcepoint-style banner lives inside an iframe to validate all-frames behavior.</p>
+      <div class="button-row">
+        <button title="Reject all" class="reject" id="iframeReject">Reject all</button>
+        <button title="Accept all" class="accept" id="iframeAccept">Accept all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#sp_message_container_202",
+        reject: "#iframeReject",
+        accept: "#iframeAccept",
+        cleanup: [".fixture-backdrop"],
+        rejectMessage: "Iframe banner rejected optional tracking.",
+        acceptMessage: "Iframe banner accepted optional tracking.",
+        hideMessage: "Iframe banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

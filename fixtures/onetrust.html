@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless OneTrust Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>OneTrust Fixture</h1>
+      <p class="lead">Balanced mode should reject here. Visual only should hide the banner without clicking.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop onetrust-pc-dark-filter"></div>
+    <section id="onetrust-banner-sdk" class="fixture-banner">
+      <h2>We value your privacy</h2>
+      <p>This fixture uses OneTrust-style selectors and cookie language so Cookieless can exercise the adapter.</p>
+      <div class="button-row">
+        <button id="onetrust-reject-all-handler" class="reject">Reject All</button>
+        <button id="onetrust-accept-btn-handler" class="accept">Accept All</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#onetrust-banner-sdk",
+        reject: "#onetrust-reject-all-handler",
+        accept: "#onetrust-accept-btn-handler",
+        cleanup: [".onetrust-pc-dark-filter"],
+        rejectMessage: "OneTrust fixture rejected optional cookies.",
+        acceptMessage: "OneTrust fixture accepted cookies.",
+        hideMessage: "OneTrust fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

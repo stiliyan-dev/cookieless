@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Sourcepoint Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Sourcepoint Fixture</h1>
+      <p class="lead">Sourcepoint often shows up in iframes, but this direct page fixture is useful before testing the iframe case.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop"></div>
+    <section id="sp_message_container_101" class="fixture-banner">
+      <h2>Manage your privacy</h2>
+      <p>Use the reject control to continue with essential cookies only.</p>
+      <div class="button-row">
+        <button title="Reject all" class="reject" id="sourcepointReject">Reject all</button>
+        <button title="Accept all" class="accept" id="sourcepointAccept">Accept all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      FixtureConsent.bind({
+        banner: "#sp_message_container_101",
+        reject: "#sourcepointReject",
+        accept: "#sourcepointAccept",
+        cleanup: [".fixture-backdrop"],
+        rejectMessage: "Sourcepoint fixture rejected all optional tracking.",
+        acceptMessage: "Sourcepoint fixture accepted all tracking.",
+        hideMessage: "Sourcepoint fixture banner was hidden visually."
+      });
+    </script>
+  </body>
+</html>

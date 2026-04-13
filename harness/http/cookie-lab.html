@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Site-State Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Cookieless Site-State Lab</h1>
+      <p class="lead" id="scenarioLabel">Preparing scenario...</p>
+
+      <section class="card">
+        <h2>Current state</h2>
+        <div id="status" class="status">Loading…</div>
+        <div class="actions">
+          <button id="refreshState">Refresh state</button>
+          <button id="resetLocalState">Reset this scenario locally</button>
+          <a href="index.html">Back to harness index</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Expected usage</h2>
+        <p class="muted">
+          Use the Cookieless popup to inspect, clear, or block this site’s state.
+          This page intentionally recreates some state depending on the active scenario.
+        </p>
+      </section>
+    </main>
+
+    <script src="lab.js"></script>
+  </body>
+</html>

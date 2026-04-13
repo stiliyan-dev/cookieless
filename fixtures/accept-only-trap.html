@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cookieless Accept-Only Trap Fixture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="fixture-shell">
+      <h1>Accept-Only Trap Fixture</h1>
+      <p class="lead">This generic dialog has no reject button. Cookieless should hide it, not click accept.</p>
+      <div class="fixture-result" id="result">Waiting for banner action.</div>
+    </main>
+
+    <div class="fixture-backdrop"></div>
+    <section id="accept-only-consent" class="fixture-banner" role="dialog" data-cookiebanner="true">
+      <h2>Cookies and privacy</h2>
+      <p>We use cookies and partners for analytics and advertising. You can accept all or review settings.</p>
+      <div class="button-row">
+        <button id="acceptOnlySettings" class="secondary">Manage settings</button>
+        <button id="acceptOnlyAccept" class="accept">Accept all</button>
+      </div>
+    </section>
+
+    <script src="shared.js"></script>
+    <script>
+      document.getElementById("acceptOnlyAccept").addEventListener("click", () => {
+        document.getElementById("accept-only-consent").remove();
+        document.querySelector(".fixture-backdrop").remove();
+        FixtureConsent.setStatus("#result", "Accept-only trap accepted cookies.");
+      });
+
+      FixtureConsent.bind({
+        banner: "#accept-only-consent",
+        accept: "#acceptOnlyAccept",
+        configure: "#acceptOnlySettings",
+        cleanup: [".fixture-backdrop"],
+        configureMessage: "Accept-only trap settings opened.",
+        acceptMessage: "Accept-only trap accepted cookies.",
+        hideMessage: "Accept-only trap was hidden visually without clicking accept."
+      });
+    </script>
+  </body>
+</html>
