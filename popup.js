@@ -90,7 +90,7 @@ async function refresh() {
 
   toggleSiteButton.textContent = response.siteEnabled ? "Pause on this site" : "Resume on this site";
   toggleSiteButton.disabled = !response.hostname;
-  const canSubmitReport =
+  const reportDisabled =
     popupState.reportBusy ||
     !response.reportSubmissionEnabled ||
     !response.hostname ||
@@ -108,7 +108,7 @@ async function refresh() {
     Date.now() - Number(lastReport.submittedAt) < REPORT_RECENT_WINDOW_MS;
 
   saveBugReportButton.textContent = recentlyReported ? "Reported" : "Report broken site";
-  saveBugReportButton.disabled = canSubmitReport || recentlyReported;
+  saveBugReportButton.disabled = reportDisabled || recentlyReported;
 }
 
 async function handleModeChange() {
@@ -229,7 +229,6 @@ async function submitBugReport() {
         ? "Reported. Cookieless matched a recent copy and refreshed the support signal."
         : "Reported. Thanks for flagging this site."
     );
-    await refresh();
   } finally {
     popupState.reportBusy = false;
     await refresh();

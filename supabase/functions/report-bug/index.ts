@@ -47,7 +47,7 @@ Deno.serve(async (request) => {
     }, 403, corsHeaders);
   }
 
-  const expectedPublicKey = (Deno.env.get("COOKILESS_REPORT_PUBLIC_KEY") || "").trim();
+  const expectedPublicKey = (Deno.env.get("COOKIELESS_REPORT_PUBLIC_KEY") || "").trim();
   const providedPublicKey = (request.headers.get("apikey") || "").trim();
 
   if (expectedPublicKey && providedPublicKey !== expectedPublicKey) {

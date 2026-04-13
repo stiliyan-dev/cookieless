@@ -83,6 +83,12 @@
           to review, triage, and fix site issues. Public GitHub Issues are used later for curated
           engineering follow-up, not as the first landing place for every customer report.
         </p>
+        <p>
+          When a report is submitted, the receiving server may log standard HTTP request data,
+          including the submitting IP address, as part of normal server-side infrastructure logging.
+          Server-side logs are retained according to the default Supabase log retention policy.
+          Cookieless does not store IP addresses in the bug reports table directly.
+        </p>
       </section>
 
       <section class="policyCard">
